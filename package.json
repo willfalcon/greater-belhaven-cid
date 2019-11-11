@@ -5,18 +5,22 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html"
+    "dev": "parcel index.html",
+    "build-dev": "parcel build src/App.js --public-url /greaterbelhaven.dev/wp-content/plugins/cid/dist",
+    "build": "parcel build src/App.js --public-url /wp-content/plugins/cid/dist"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.7.2",
     "classnames": "^2.2.6",
+    "loaders.css": "^0.1.2",
     "normalize.css": "^8.0.1",
     "polished": "^3.4.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
+    "react-loaders": "^3.0.1",
     "react-spring": "^8.0.27",
     "styled-components": "^4.4.1"
   },

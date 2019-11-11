@@ -6,11 +6,14 @@ import Info from './Info';
 import Instructions from './Instructions';
 import FAQ from './FAQ';
 import Footer from './Footer';
+import Loader from './Loader';
 
 const CID = () => {
+
   return (
     <Container>
       <Header />
+      <Loader />
       <Info />
       <Instructions />
       <FAQ />
@@ -19,6 +22,8 @@ const CID = () => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: relative;
+`;
 
 export default CID;

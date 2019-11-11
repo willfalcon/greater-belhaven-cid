@@ -16,9 +16,9 @@ const SiteContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('http://localhost/greaterbelhaven.dev/wp-json/acf/v3/options/options');
-      const results = await res.json();
-      setOptions(results.acf);
+      const optionsRes = await fetch('http://localhost/greaterbelhaven.dev/wp-json/cid/options');
+      const options = await optionsRes.json();
+      setOptions(options);
       setDataReady(true);
     }
     fetchData();
