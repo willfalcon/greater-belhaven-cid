@@ -1,0 +1,45 @@
+import React, { useState, useEffect } from 'react';
+
+import { useViewport } from './utils';
+
+const SiteContext = React.createContext();
+
+const SiteContextProvider = ({ children }) => {
+
+  const [options, setOptions] = useState();
+
+  const { viewport, ready: windowReady, breakpoint } = useViewport();
+
+  const [dataReady, setDataReady] = useState(false);
+
+  const [leftWidth, setLeftWidth] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch('http://localhost/greaterbelhaven.dev/wp-json/acf/v3/options/options');
+      const results = await res.json();
+      setOptions(results.acf);
+      setDataReady(true);
+    }
+    fetchData();
+  }, []);
+
+  return (
+    <SiteContext.Provider
+      value={{
+        ...options,
+        viewport,
+        windowReady,
+        breakpoint,
+        ready: dataReady && windowReady,
+        leftWidth, setLeftWidth
+      }}
+    >
+      {children}
+    </SiteContext.Provider>
+  );
+};
+
+export { SiteContextProvider };
+
+export default SiteContext;
