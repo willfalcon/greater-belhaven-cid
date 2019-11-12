@@ -26,6 +26,9 @@ function my_acf_settings_show_admin( $show_admin ) {
 	return false;
 }
 
+require __DIR__ . '/vendor/autoload.php';
+PhilipNewcomer\ACF_Unique_ID_Field\ACF_Field_Unique_ID::init();
+
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
 		'page_title' => 'CID Settings',

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "philipnewcomer/acf-unique-id-field": "^2.0"
+    }
+}

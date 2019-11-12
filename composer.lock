@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f6a4e35e6fe37387ec74c05c8cd7bc7b",
+    "packages": [
+        {
+            "name": "philipnewcomer/acf-unique-id-field",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/philipnewcomer/ACF-Unique-ID-Field.git",
+                "reference": "8145a8defc811a3ddce6a481e487ed45afa8d20b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/philipnewcomer/ACF-Unique-ID-Field/zipball/8145a8defc811a3ddce6a481e487ed45afa8d20b",
+                "reference": "8145a8defc811a3ddce6a481e487ed45afa8d20b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhilipNewcomer\\ACF_Unique_ID_Field\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Philip Newcomer",
+                    "email": "contact@philipnewcomer.net",
+                    "homepage": "http://philipnewcomer.net"
+                }
+            ],
+            "description": "An ACF field which generates a unique ID value, intended for use in ACF Repeaters",
+            "time": "2019-06-28T00:43:27+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

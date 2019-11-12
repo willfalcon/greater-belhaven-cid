@@ -14,6 +14,8 @@ const SiteContextProvider = ({ children }) => {
 
   const [leftWidth, setLeftWidth] = useState(0);
 
+  const [heightReady, setHeightReady] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       const optionsRes = await fetch('http://localhost/greaterbelhaven.dev/wp-json/cid/options');
@@ -31,7 +33,8 @@ const SiteContextProvider = ({ children }) => {
         viewport,
         windowReady,
         breakpoint,
-        ready: dataReady && windowReady,
+        ready: dataReady && windowReady && heightReady,
+        setHeightReady, heightReady,
         leftWidth, setLeftWidth
       }}
     >

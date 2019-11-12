@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import Info from './Info';
 import Instructions from './Instructions';
-import FAQ from './FAQ';
+import FAQ from './FAQ/FAQ';
 import Footer from './Footer';
 import Loader from './Loader';
 
