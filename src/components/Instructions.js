@@ -8,7 +8,6 @@ import SiteContext from './SiteContext';
 import { media } from './theme';
 
 const Instructions = () => {
-
   const { instruction_block, setLeftWidth } = useContext(SiteContext);
 
   const imgRef = useRef(null);
@@ -20,7 +19,7 @@ const Instructions = () => {
   });
 
   return (
-    <StyledInstructions className="instructions">
+    <StyledInstructions id="count-me-in" className="instructions">
       <div className="instructions__map">
         <img
           className="cid-map"
@@ -44,8 +43,15 @@ const StyledInstructions = styled.div`
   background: ${({ theme }) => theme.red};
   color: ${({ theme }) => theme.offWhite};
   font-size: 1.8rem;
-  letter-spacing: .9px;
+  letter-spacing: 0.9px;
   line-height: 1.33;
+
+  p,
+  strong,
+  em {
+    color: ${({ theme }) => theme.offWhite};
+  }
+
   .instructions {
     &__count-me-in {
       padding: 2.5rem 2rem;

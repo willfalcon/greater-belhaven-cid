@@ -5,7 +5,6 @@ import { useViewport } from './utils';
 const SiteContext = React.createContext();
 
 const SiteContextProvider = ({ children }) => {
-
   const [options, setOptions] = useState();
 
   const { viewport, ready: windowReady, breakpoint } = useViewport();
@@ -18,11 +17,11 @@ const SiteContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const optionsRes = await fetch('http://localhost/greaterbelhaven.dev/wp-json/cid/options');
+      const optionsRes = await fetch('/wp-json/cid/options');
       const options = await optionsRes.json();
       setOptions(options);
       setDataReady(true);
-    }
+    };
     fetchData();
   }, []);
 
@@ -34,8 +33,10 @@ const SiteContextProvider = ({ children }) => {
         windowReady,
         breakpoint,
         ready: dataReady && windowReady && heightReady,
-        setHeightReady, heightReady,
-        leftWidth, setLeftWidth
+        setHeightReady,
+        heightReady,
+        leftWidth,
+        setLeftWidth,
       }}
     >
       {children}

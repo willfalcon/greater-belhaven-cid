@@ -25,6 +25,7 @@ const StyledHeader = styled.header`
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+  background: white;
   .header-logo {
     margin-bottom: 2.5rem;
   }

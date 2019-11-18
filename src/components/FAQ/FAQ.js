@@ -8,16 +8,26 @@ import GreenLogo from '../../images/greater-belhaven-logo-green.svg';
 import { media } from '../theme';
 
 const FAQ = () => {
-  
   const pastBreak = breakpoint !== 'small';
-  const { faqs, ready, breakpoint, leftWidth, setHeightReady, heightReady } = useContext(SiteContext);
+  const {
+    faqs,
+    ready,
+    breakpoint,
+    leftWidth,
+    setHeightReady,
+    heightReady,
+  } = useContext(SiteContext);
   const [active, setActive] = useState(pastBreak && faqs ? faqs[0].id : null);
   const [longestAnswer, setLongestAnswer] = useState(false);
   const [answerHeight, setAnswerHeight] = useState(0);
 
-  
   useEffect(() => {
-    setLongestAnswer(faqs && faqs.reduce((acc, cur) => cur.answer.length > acc.answer.length ? cur : acc));
+    setLongestAnswer(
+      faqs &&
+        faqs.reduce((acc, cur) =>
+          cur.answer.length > acc.answer.length ? cur : acc
+        )
+    );
     if (pastBreak && faqs) {
       setActive(faqs[0].id);
     }
@@ -26,11 +36,11 @@ const FAQ = () => {
   const answerRef = useRef(null);
 
   useEffect(() => {
-    if (longestAnswer && breakpoint === "break") {
+    if (longestAnswer && breakpoint === 'break') {
       setActive(longestAnswer.id);
       setAnswerHeight(answerRef.current.clientHeight + 100 + 32);
       setHeightReady(true);
-      setActive(breakpoint !== "small" ? faqs[0].id : null);
+      setActive(breakpoint !== 'small' ? faqs[0].id : null);
     }
     if (breakpoint === 'small') {
       setHeightReady(true);
@@ -42,31 +52,36 @@ const FAQ = () => {
     item => item.id,
     {
       from: {
-        opacity: "0",
-        transform: "translateX(-100%)",
+        opacity: '0',
+        transform: 'translateX(-100%)',
       },
       enter: {
-        opacity: "1",
-        transform: "translateX(0)"
+        opacity: '1',
+        transform: 'translateX(0)',
       },
       leave: {
-        opacity: "0",
-        transform: "translateX(100%)"
-      }
+        opacity: '0',
+        transform: 'translateX(100%)',
+      },
     }
   );
 
   return (
-    <FAQContainer className="faq" leftWidth={leftWidth}>
+    <FAQContainer id="faq" className="faq" leftWidth={leftWidth}>
       <div className="faq-questions">
         <FAQHeading className="faq__heading">
           Frequently Asked Questions
         </FAQHeading>
         {ready ? (
-          <FAQList faqs={faqs} setActive={setActive} active={active} breakpoint={breakpoint} />
+          <FAQList
+            faqs={faqs}
+            setActive={setActive}
+            active={active}
+            breakpoint={breakpoint}
+          />
         ) : null}
       </div>
-      {faqs && breakpoint === "break" && (
+      {faqs && breakpoint === 'break' && (
         <AnswerBox
           className="faq-answer"
           bg={GreenLogo}
@@ -87,7 +102,6 @@ const FAQ = () => {
     </FAQContainer>
   );
 };
-
 
 const FAQContainer = styled.div`
   ${media.break`
@@ -110,6 +124,7 @@ const FAQHeading = styled.h2`
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 1.67px;
+  font-family: ${({ theme }) => theme.font.family};
   ${media.break`
     background: transparent;
   `}
@@ -133,7 +148,6 @@ const backgroundLogo = css`
   `}
 `;
 
-
 const AnswerBox = styled.div`
   position: relative;
   padding: 5rem 4rem;
@@ -141,6 +155,7 @@ const AnswerBox = styled.div`
   flex-grow: 1;
   z-index: 1;
   overflow: hidden;
+  background: white;
   ::before {
     ${backgroundLogo}
   }

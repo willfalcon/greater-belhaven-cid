@@ -3,7 +3,7 @@
  * Plugin Name: Greater Belhaven Community Improvement District
  * Author: Creative Distillery
  * Author URI: https://creativedistillery.com
- * Version: 1.0.0
+ * Version: 1.0.1
  */
 
 // Include ACF
@@ -35,6 +35,8 @@ if (function_exists('acf_add_options_page')) {
 		'position' => 53.3
 	));
 }
+
+include_once( plugin_dir_path( __FILE__) . '/fields.php' );
 
 include_once( plugin_dir_path( __FILE__) . '/add_template.php' );
 

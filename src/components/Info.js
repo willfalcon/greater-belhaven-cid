@@ -10,32 +10,28 @@ import Button from './Button';
 import countMeIn from '../images/count-me-in-white.svg';
 
 const Info = () => {
-
-  const { main_content, link_1, link_2, leftWidth, viewport } = useContext(SiteContext);
+  const { main_content, link_1, link_2, leftWidth, viewport } = useContext(
+    SiteContext
+  );
 
   return (
-    <StyledInfo className="info" bg={tree} leftWidth={leftWidth} viewWidth={viewport.width}>
+    <StyledInfo
+      className="info"
+      bg={tree}
+      leftWidth={leftWidth}
+      viewWidth={viewport.width}
+    >
       <div className="info__video-wrapper"></div>
       <div className="info__content-wrapper">
         <div
           className="info__content"
           dangerouslySetInnerHTML={{ __html: main_content }}
         />
-        {link_1 && (
-          <Button
-            className="info__link"
-            href={link_1.url}
-            target={link_1.target}
-          >
-            <img src={countMeIn} alt="Count Me In" />
-          </Button>
-        )}
+        <Button className="info__link" href="#count-me-in">
+          <img src={countMeIn} alt="Count Me In" />
+        </Button>
         {link_2 && (
-          <Button
-            className="info__link"
-            href={link_2.url}
-            target={link_2.target}
-          >
+          <Button className="info__link" href="#faq">
             {link_2.title}
           </Button>
         )}
@@ -52,10 +48,16 @@ const StyledInfo = styled.div`
 
   color: ${({ theme }) => theme.offWhite};
   font-size: 1.8rem;
-  letter-spacing: .9px;
+  letter-spacing: 0.9px;
   line-height: 1.33;
 
   position: relative;
+
+  p,
+  strong,
+  em {
+    color: ${({ theme }) => theme.offWhite};
+  }
 
   ${media.break`
     display: flex;
@@ -74,7 +76,7 @@ const StyledInfo = styled.div`
 
   ::after {
     content: '';
-    background: ${({ theme }) => rgba(theme.blue, .85)};
+    background: ${({ theme }) => rgba(theme.blue, 0.85)};
     width: 100%;
     ${media.break`
       width: ${({ leftWidth, viewWidth }) => viewWidth - leftWidth}px;

@@ -5,7 +5,7 @@
   </head>
   <body>
   <div id="App"></div>
-  <script src="<?php echo plugin_dir_url( __FILE__ ) . 'dist/App.js'; ?>"></script>
+  <script src="<?php echo plugin_dir_url( __FILE__ ) . 'dist/App.js?v=1.1.1'; ?>"></script>
   <?php wp_footer(); ?>
   </body>
 </html>
